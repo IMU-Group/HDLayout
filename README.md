@@ -24,9 +24,9 @@ git clone git@github.com:imu-group/hdlayout.git
 
 ## <a name="GettingStarted"></a>Getting Started
 
-First download a [model checkpoint](#model-checkpoints)
+First, download a [model checkpoint](#model-checkpoints)
 
-Additionally, laout can be generated from the command line:
+Additionally, the layout can be generated from the command line:
 
 ```
 python inference.py
