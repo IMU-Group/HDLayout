@@ -1,10 +1,10 @@
 # HDLayout
 
-[[`Paper`](https://)] [[`Dataset`](https://)] [[`Blog`](https://hxiangdou.github.io/HDLayout/)] [[`BibTeX`](#CitingHDLayout)]
+[[`Paper`](https://github.com/Hxiangdou/HDLayout/blob/main/src/assets/paper/AAAI25_CRC.out250103.pdf)] [[`Dataset`](https://drive.google.com/drive/folders/1kNas4WF7FscC43Lw-AV-BrhrKjZ3h0UK?usp=sharing)] [[`Blog`](https://hxiangdou.github.io/HDLayout/)] [[`BibTeX`](#CitingHDLayout)]
 
 ![HDLayout design](assets/model_diagram.png?raw=true)
 
-The **HDLayout** outperforms several strong baselines in a variety of scenarios both qualitatively and quantitatively, yielding state-of-the-art performances on arbitrarily shaped visual text generation. It has been trained on a [dataset](https://) of 2,749 training data and 813 test data, and has strong zero-shot performance on a variety of segmentation tasks.
+The **HDLayout** outperforms several strong baselines in a variety of scenarios both qualitatively and quantitatively, yielding state-of-the-art performances on arbitrarily shaped visual text generation. It has been trained on a [dataset](https://drive.google.com/drive/folders/1kNas4WF7FscC43Lw-AV-BrhrKjZ3h0UK?usp=sharing) of 2,749 training data and 813 test data, and has strong zero-shot performance on a variety of segmentation tasks.
 
 ## Installation
 
@@ -40,7 +40,7 @@ Click the links below to download the checkpoint for the corresponding model typ
 
 ## Dataset
 
-The dataset can be downloaded [here](https://). By downloading the datasets you agree that you have read and accepted the terms of the HDLayout Research License.
+The dataset can be downloaded [here](https://drive.google.com/drive/folders/1kNas4WF7FscC43Lw-AV-BrhrKjZ3h0UK?usp=sharing). By downloading the datasets you agree that you have read and accepted the terms of the HDLayout Research License. You need to download text-free background images from the [link](https://github.com/HCIILAB/SCUT-EnsText) and place them into the corresponding images folders under train/val directories to complete the dataset supplementation.
 
 ## License
 
