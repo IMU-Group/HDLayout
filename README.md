@@ -4,7 +4,7 @@
 
 ![HDLayout design](assets/pipeline.jpg?raw=true)
 
-The **HDLayout** outperforms several strong baselines in a variety of scenarios both qualitatively and quantitatively, yielding state-of-the-art performances on arbitrarily shaped visual text generation. It has been trained on a [dataset](https://drive.google.com/drive/folders/1kNas4WF7FscC43Lw-AV-BrhrKjZ3h0UK?usp=sharing) of 2,749 training data and 813 test data, and has strong zero-shot performance on a variety of segmentation tasks.
+The **HDLayout** outperforms several strong baselines in a variety of scenarios both qualitatively and quantitatively, yielding state-of-the-art performances on arbitrarily shaped visual text generation. It has been trained on a [dataset](https://drive.google.com/drive/folders/1kNas4WF7FscC43Lw-AV-BrhrKjZ3h0UK?usp=sharing) of 2,749 training data and 813 test data.
 
 ## Installation
 
