@@ -22,7 +22,7 @@ or clone the repository locally and install with
 git clone git@github.com:imu-group/hdlayout.git
 ```
 
-## `<a name="GettingStarted"></a>`Getting Started
+## Getting Started
 
 First, download a [model checkpoint](#model-checkpoints).
 
