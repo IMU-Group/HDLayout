@@ -2,7 +2,7 @@
 
 [[`Paper`](https://github.com/Hxiangdou/HDLayout/blob/main/src/assets/paper/AAAI25_CRC.out250103.pdf)] [[`Dataset`](https://drive.google.com/drive/folders/1kNas4WF7FscC43Lw-AV-BrhrKjZ3h0UK?usp=sharing)] [[`Blog`](https://hxiangdou.github.io/HDLayout/)] [[`BibTeX`](#CitingHDLayout)]
 
-![HDLayout design](assets/model_diagram.png?raw=true)
+![HDLayout design](assets/pipeline.jpg?raw=true)
 
 The **HDLayout** outperforms several strong baselines in a variety of scenarios both qualitatively and quantitatively, yielding state-of-the-art performances on arbitrarily shaped visual text generation. It has been trained on a [dataset](https://drive.google.com/drive/folders/1kNas4WF7FscC43Lw-AV-BrhrKjZ3h0UK?usp=sharing) of 2,749 training data and 813 test data, and has strong zero-shot performance on a variety of segmentation tasks.
 
@@ -22,14 +22,22 @@ or clone the repository locally and install with
 git clone git@github.com:imu-group/hdlayout.git
 ```
 
-## <a name="GettingStarted"></a>Getting Started
+## `<a name="GettingStarted"></a>`Getting Started
 
-First, download a [model checkpoint](#model-checkpoints)
+First, download a [model checkpoint](#model-checkpoints).
+
+## Requirements
+
+```
+pip install -r requirements.txt
+```
+
+## Inference
 
 Additionally, the layout can be generated from the command line:
 
 ```
-python inference.py
+python inference.py --img_path ./test_data --output_dir ./outputs --resume /path/to/checkpoint.pth
 ```
 
 ## Checkpoint

@@ -1,0 +1,31 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "LATEX debugger",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "--dataset_path", "/data/LATEX-EnxText-new/",
+                "--output_dir", "/data/model/LATEX/",
+            ]
+        },{
+            "name": "LATEX sample debugger",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "--img_dir", "/data/LATEX-EnxText-new/val/images",
+                "--ckpt", "/data/model/LATEX/20240808_090100/checkpoint.pth",
+                "--output_dir", "/data/model/LATEX/",
+                "--no_aux_loss",
+            ]
+        }
+    ]
+}
