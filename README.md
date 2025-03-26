@@ -36,7 +36,7 @@ python inference.py
 
 Click the links below to download the checkpoint for the corresponding model type.
 
-- **`default`: [HDLayout model.](https://)**
+- **`default`: [HDLayout model.](https://drive.google.com/file/d/11SVTAViwBOIQaEs9zuIC0hLtHpQiDbT2/view?usp=sharing)**
 
 ## Dataset
 
