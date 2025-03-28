@@ -19,7 +19,7 @@ pip install git+https://github.com/imu-group/hdlayout.git
 or clone the repository locally and install with
 
 ```
-git clone git@github.com:imu-group/hdlayout.git
+git clone https://github.com/IMU-Group/HDLayout.git
 ```
 
 2. Click the links below to download the checkpoint for the corresponding model type.
