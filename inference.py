@@ -9,11 +9,11 @@ import utils.misc as utils
 # from utils.plot_utils import json_save, Line12Block, Line22Line1
 from utils.plot_utils import ShowLabelInference
 from utils.plot_utils_fast import json_save, Line12Block, Line22Line1
-from model import PostProcess
+from models.model import PostProcess
 from PIL import Image
 import dataset.transforms as T
-from model import LATEX
-from showLabelSample import render_generate_hdlayout
+from models.model import LATEX
+from utils.showLabelSample import render_generate_hdlayout
 
 def get_args_parser():
     parser = argparse.ArgumentParser('Set LATEX model', add_help=False)
@@ -80,12 +80,12 @@ def get_args_parser():
     parser.add_argument('--dataset_path', type=str)
     parser.add_argument('--remove_difficult', action='store_true')
 
-    parser.add_argument('--output_dir', default='/data/model/LATEX/',
+    parser.add_argument('--output_dir', default='./outputs',
                         help='path where to save, empty for no saving')
     parser.add_argument('--device', default='cuda',
                         help='device to use for training / testing')
     parser.add_argument('--seed', default=12345, type=int)
-    parser.add_argument('--resume', default='/data/model/LATEX/20240809_145846/checkpoint.pth', help='resume from checkpoint')
+    parser.add_argument('--resume', default='./checkpoint.pth', help='resume from checkpoint')
     parser.add_argument('--start_epoch', default=0, type=int, metavar='N',
                         help='start epoch')
     parser.add_argument('--eval', action='store_true')

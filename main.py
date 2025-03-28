@@ -12,8 +12,8 @@ from torch.utils.data import DataLoader
 import wandb
 import utils.misc as utils
 from dataset import buildDataset
-from engine import evaluate, train_one_epoch
-from model import build
+from utils.engine import evaluate, train_one_epoch
+from models.model import build
 from utils.plot_utils import DataRender, json_save
 
 wandb.init(project="LATEX", dir="/data/model/LATEX/wandb")
