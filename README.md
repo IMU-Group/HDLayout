@@ -24,7 +24,7 @@ git clone git@github.com:imu-group/hdlayout.git
 
 ## Getting Started
 
-First, download a [model checkpoint](#model-checkpoints).
+First, download a [model checkpoint](## model-checkpoints).
 
 ## Requirements
 
