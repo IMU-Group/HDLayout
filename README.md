@@ -39,10 +39,18 @@ pip install -r requirements.txt
 
 ## Inference
 
-Additionally, the layout can be generated from the command line:
+Additionally, the HDLayout can be generated from the command line:
 
 ```
 python inference.py --img_path ./test_data --output_dir ./outputs --resume /path/to/checkpoint.pth
+```
+
+## Train
+
+Additionally, the HDLayout model can be trained from the command line:
+
+```
+python main.py --dataset_path ./path/to/dataset --output_dir ./outputs --device cuda
 ```
 
 ## Dataset
