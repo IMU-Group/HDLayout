@@ -14,13 +14,13 @@ import utils.misc as utils
 from dataset import buildDataset
 from utils.engine import evaluate, train_one_epoch
 from models.model import build
-from utils.plot_utils import DataRender, json_save
+from utils.plotUtils import DataRender, json_save
 
-wandb.init(project="LATEX", dir="/data/model/LATEX/wandb")
+wandb.init(project="HDLayout", dir="/data/model/HDLayout/wandb")
 os.environ["WANDB_MODE"] = "offline"
 
 def get_args_parser():
-    parser = argparse.ArgumentParser('Set LATEX model', add_help=False)
+    parser = argparse.ArgumentParser('Set HDLayout model', add_help=False)
     parser.add_argument('--lr', default=1e-4, type=float)
     parser.add_argument('--lr_backbone', default=1e-5, type=float)
     parser.add_argument('--batch_size', default=2, type=int)
@@ -240,7 +240,7 @@ def main(args):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser('LATEX training and evaluation script', parents=[get_args_parser()])
+    parser = argparse.ArgumentParser('HDLayout training and evaluation script', parents=[get_args_parser()])
     args = parser.parse_args()
     if args.output_dir:
         Path(args.output_dir).mkdir(parents=True, exist_ok=True)

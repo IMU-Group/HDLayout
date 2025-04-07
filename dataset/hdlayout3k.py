@@ -1,6 +1,6 @@
 import dataset.transforms as T
 from pathlib import Path
-from PIL import Image, ImageDraw
+from PIL import Image
 import os, json
 from torch.utils.data.dataset import Dataset
 

@@ -7,16 +7,16 @@ import numpy as np
 import torch
 import utils.misc as utils
 # from utils.plot_utils import json_save, Line12Block, Line22Line1
-from utils.plot_utils import ShowLabelInference
-from utils.plot_utils_fast import json_save, Line12Block, Line22Line1
+from utils.plotUtils import ShowLabelInference
+from utils.plotUtils import json_save, Line12Block, Line22Line1
 from models.model import PostProcess
 from PIL import Image
 import dataset.transforms as T
-from models.model import LATEX
+from models.model import HDLayout
 from utils.showLabelSample import render_generate_hdlayout
 
 def get_args_parser():
-    parser = argparse.ArgumentParser('Set LATEX model', add_help=False)
+    parser = argparse.ArgumentParser('Set HDLayout model', add_help=False)
     parser.add_argument('--lr', default=1e-4, type=float)
     parser.add_argument('--lr_backbone', default=1e-5, type=float)
     parser.add_argument('--batch_size', default=2, type=int)
@@ -76,7 +76,7 @@ def get_args_parser():
 
     # dataset parameters
     parser.add_argument('--font_path', default="font/Arial_Unicode.ttf", type=str)
-    parser.add_argument('--img_path', default="/data/LATEX-EnxText-new/val/images", type=str)
+    parser.add_argument('--img_path', default="/data/HDLayout-EnxText-new/val/images", type=str)
     parser.add_argument('--dataset_path', type=str)
     parser.add_argument('--remove_difficult', action='store_true')
 
@@ -112,7 +112,7 @@ def main(args):
     for i in range(1, len(args.num_queries)):
         args.num_queries[i] *= args.num_queries[i-1]
 
-    model = LATEX(args)
+    model = HDLayout(args)
     model.to(device)
 
     model_without_ddp = model
@@ -216,7 +216,7 @@ def main(args):
     return
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser('LATEX inference', parents=[get_args_parser()])
+    parser = argparse.ArgumentParser('HDLayout inference', parents=[get_args_parser()])
     args = parser.parse_args()
     if args.output_dir:
         Path(args.output_dir).mkdir(parents=True, exist_ok=True)

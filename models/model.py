@@ -1,5 +1,5 @@
 """
-LATEX model
+HDLayout model
 """
 
 import logging
@@ -11,16 +11,16 @@ from models.matcher import build_matcher
 from models.transformer import build_transformer, build_transformer_decoder
 from utils.misc import (NestedTensor, nested_tensor_from_tensor_list,
                        get_world_size, is_dist_avail_and_initialized)
-import utils.box_ops as box_ops
+import utils.boxOps as boxOps
 
 logger = logging.getLogger(__name__)
 
-class LATEX(nn.Module):
-    """ Whole LATEX model composited by Block, Line and Character module """
+class HDLayout(nn.Module):
+    """ Whole HDLayout model composited by Block, Line and Character module """
     def __init__(self, args):
         """ Initialize the model
         """
-        super(LATEX, self).__init__()
+        super(HDLayout, self).__init__()
         self.bs = args.batch_size
         self.aux_loss = args.aux_loss
         self.num_queries = args.num_queries # block 4 / line 4*4
@@ -190,13 +190,13 @@ class SetCriterion(nn.Module):
         losses = {}
         losses['loss_block_bbox'] = loss_bbox.sum() / num_boxes
 
-        loss_giou = 1 - torch.diag(box_ops.generalized_box_iou(
-            box_ops.box_cxcywh_to_xyxy(src_boxes),
-            box_ops.box_cxcywh_to_xyxy(target_boxes)))
+        loss_giou = 1 - torch.diag(boxOps.generalized_box_iou(
+            boxOps.box_cxcywh_to_xyxy(src_boxes),
+            boxOps.box_cxcywh_to_xyxy(target_boxes)))
         losses['loss_block_giou'] = loss_giou.sum() / num_boxes
 
         # loss_overlap = box_ops.overlap(box_ops.box_cxcywh_to_xyxy(src_boxes))
-        loss_overlap = box_ops.overlap_ll(outputs['pred_block'])
+        loss_overlap = boxOps.overlap_ll(outputs['pred_block'])
         losses['loss_overlap_block'] = loss_overlap
 
         if 'pred_block_prob' in outputs:
@@ -221,13 +221,13 @@ class SetCriterion(nn.Module):
         losses = {}
         losses['loss_line1_bbox'] = loss_bbox.sum() / num_boxes
 
-        loss_giou = 1 - torch.diag(box_ops.generalized_box_iou(
-            box_ops.box_cxcywh_to_xyxy(src_boxes),
-            box_ops.box_cxcywh_to_xyxy(target_boxes)))
+        loss_giou = 1 - torch.diag(boxOps.generalized_box_iou(
+            boxOps.box_cxcywh_to_xyxy(src_boxes),
+            boxOps.box_cxcywh_to_xyxy(target_boxes)))
         losses['loss_line1_giou'] = loss_giou.sum() / num_boxes
 
         # loss_overlap = box_ops.overlap(box_ops.box_cxcywh_to_xyxy(src_boxes))
-        loss_overlap = box_ops.overlap_ll(outputs['pred_line1'])
+        loss_overlap = boxOps.overlap_ll(outputs['pred_line1'])
         losses['loss_overlap_line1'] = loss_overlap
 
         if 'pred_line1_prob' in outputs:
@@ -345,12 +345,12 @@ class PostProcess(nn.Module):
         # line2_scores, line2_labels = pred_line2_prob[..., :].max(-1)
         pred_block_prob, pred_line1_prob, pred_line2_prob = outputs['pred_block_prob'], outputs['pred_line1_prob'], outputs['pred_line2_prob']
         # block_bbox
-        block_bbox = box_ops.box_cxcywh_to_xyxy(out_block)
+        block_bbox = boxOps.box_cxcywh_to_xyxy(out_block)
         img_h, img_w = target_sizes.unbind(1)
         scale_fct = torch.stack([img_w, img_h, img_w, img_h], dim=1)
         block_bbox = block_bbox * scale_fct[:, None, :]
         # line1_bbox
-        line1_bbox = box_ops.box_cxcywh_to_xyxy(out_line1)
+        line1_bbox = boxOps.box_cxcywh_to_xyxy(out_line1)
         img_h, img_w = target_sizes.unbind(1)
         scale_fct = torch.stack([img_w, img_h, img_w, img_h], dim=1)
         line1_bbox = line1_bbox * scale_fct[:, None, :]
@@ -365,7 +365,7 @@ class PostProcess(nn.Module):
 
 def build(args):
     device = torch.device(args.device)
-    model = LATEX(args)
+    model = HDLayout(args)
     matcher = build_matcher(args)
     weight_dict = {
         'loss_block_bbox': args.bbox_loss_coef,
